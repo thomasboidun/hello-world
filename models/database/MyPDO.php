@@ -1,10 +1,6 @@
 <?php
-class MyPDO
-{
-    public function __construct()
-    {
-
-    }
+class MyPDO {
+    public function __construct() { }
 
     public function open_database_connection($file = 'my_setting.ini') {
       if (!$settings = parse_ini_file($file, TRUE)) throw new exception('Unable to open ' . $file . '.');
@@ -40,10 +36,15 @@ class MyPDO
     public function get_pokemon_by_id($id) {
       $link = $this->open_database_connection();
 
-      $result = $link->query('SELECT * from pokemons WHERE id = ' . $id . ';');
+      $query = 'SELECT * FROM pokemons WHERE id = :id';
+      $statement = $link->prepare($query);
+      $statement->bindValue(':id', $id, PDO::PARAM_INT);
+      $statement->execute();
 
-      $pokemon = $result->fetch();
+      $row = $statement->fetch(PDO::FETCH_ASSOC);
 
-      return $pokemon;
+      $this->close_database_connection($link);
+
+      return $row;
     }
 }

@@ -1,9 +1,10 @@
+<?php 
+  ob_start();  
+  $pokemons = $db->get_all_pokemons();
+?>
+
 <div id="list-view">
   <h1>Pokemon list works!</h1>
-  
-  <?php 
-    $pokemons = $db->get_all_pokemons();
-  ?>
 
   <table>
     <thead>
@@ -31,3 +32,7 @@
     </tbody>
   </table>
 </div>
+
+<?php
+  $content = ob_get_clean();
+  print $content;

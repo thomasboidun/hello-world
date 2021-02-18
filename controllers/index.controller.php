@@ -5,7 +5,7 @@
 
 
   // Fake router
-  if(isset($_GET) && $_GET['detail']) {
+  if(isset($_GET) && isset($_GET['detail'])) {
     require_once('./views/detail.view.php');
   } else {
     require_once('./views/list.view.php');
