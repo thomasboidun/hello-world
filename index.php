@@ -1,8 +1,3 @@
-<?php
-    require_once('./database/MyPDO.php');
-    $db = new MyPDO();
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,8 +7,9 @@
   <title>Document</title>
   <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
-<body>
-  <?php require_once('./assets/templates/main.php') ?>
-</body>
-</html>
 
+<body>
+  <main>
+    <?php require_once('./controllers/index.controller.php'); ?>
+  </main>
+</body>
