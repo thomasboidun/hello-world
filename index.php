@@ -1,15 +1,25 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./assets/styles/style.css">
-</head>
+<?php // Front Controller
 
-<body>
-  <main>
-    <?php require_once('./controllers/index.controller.php'); ?>
-  </main>
-</body>
+  require_once 'models/database/model.php';
+  require_once 'controllers/controllers.php';
+
+  $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+  
+  // Router
+  switch ($uri) {
+    case '/index.php/list':
+      show_pkm_list();
+      break;
+      
+    case '/index.php/detail':
+      if(isset($_GET) && isset($_GET['id']) && is_numeric($_GET['id'])) {
+        show_pkm_detail($_GET['id']);
+      } else {
+        show_not_found();
+      }
+      break;
+    
+    default:
+      show_pkm_list();
+      break;
+  }

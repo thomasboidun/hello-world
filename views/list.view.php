@@ -1,7 +1,8 @@
 <?php 
-  ob_start();  
-  $pokemons = $db->get_all_pokemons();
+  $title = 'Pokemons List';
 ?>
+
+<?php ob_start(); ?>
 
 <div id="list-view">
   <h1>Pokemon list works!</h1>
@@ -22,7 +23,7 @@
           <img height="100" src="<?= $pkm['artwork'] ?>" alt="<?= $pkm['name'] ?> artwork">
         </td>
         <td>
-          <a href="?detail=<?= $pkm['id'] ?>" title="<?= $pkm['name'] ?> detail">
+          <a href="/index.php/detail?id=<?= $pkm['id'] ?>" title="<?= $pkm['name'] ?> detail">
             <?= $pkm['name'] ?>
           </a>
         </td>
@@ -35,4 +36,6 @@
 
 <?php
   $content = ob_get_clean();
-  print $content;
+?>
+
+<?php include 'main.view.php';
