@@ -6,7 +6,7 @@
 
 <div id="detail-view">
   <h1><?= $pokemon['name']; ?> detail works!</h1>
-  <p>Return at <a href="index.php" title="Go home">home</a>!</p>
+  <p>Return at <a href="/index.php/list" title="Go home">home</a>!</p>
   <img src="<?= $pokemon['artwork'] ?>" alt="<?= $pokemon['name'] ?> artwork">
 </div>
 

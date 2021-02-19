@@ -6,7 +6,7 @@
 
 <div id="list-view">
   <h1>Pokemon list works!</h1>
-
+  <p><a href="/index.php/list/list.pdf">Export list on .pdf file</a></p>
   <table>
     <thead>
       <tr>

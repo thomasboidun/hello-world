@@ -1,6 +1,12 @@
 <?php // Front Controller
 
+  // Dependencies loading
+  require_once 'vendor/autoload.php';
+
+  // Database connection
   require_once 'models/database/model.php';
+
+  // Actions
   require_once 'controllers/controllers.php';
 
   $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -9,6 +15,10 @@
   switch ($uri) {
     case '/index.php/list':
       show_pkm_list();
+      break;
+
+    case '/index.php/list/list.pdf':
+      export_pkm_list();
       break;
       
     case '/index.php/detail':
