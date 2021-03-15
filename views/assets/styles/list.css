@@ -1,0 +1,53 @@
+#list-view>p>.btn-link {
+  margin-bottom: 1rem;
+}
+
+.pkm-table thead,
+.pkm-table tbody,
+.pkm-table tr,
+.pkm-table th,
+.pkm-table td {
+  border: none;
+}
+
+.pkm-table {
+  display       : flex;
+  flex-direction: column;
+  border        : 0.1rem solid #5352ed;
+  border-radius : 0.5rem;
+  border-spacing: 0;
+  overflow      : hidden;
+}
+
+.pkm-table thead,
+.pkm-table tbody {
+  display: block;
+}
+
+.pkm-table thead tr {
+  color           : #fff;
+  background-color: #5352ed;
+}
+
+.pkm-table tr {
+  display: flex;
+}
+
+.pkm-table tr:nth-child(even) {
+  background-color: rgba(83, 82, 237, 0.5);
+}
+
+.pkm-table td,
+.pkm-table th {
+  flex           : 1;
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  flex-direction : column;
+  padding        : 1rem;
+  border         : 0.1rem solid #5352ed;
+}
+
+.pkm-table .pkm-type:first-child {
+  margin-bottom: 0.5rem;
+}
